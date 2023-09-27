@@ -6,12 +6,12 @@
 /*   By: numartin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 11:02:48 by numartin          #+#    #+#             */
-/*   Updated: 2023/09/27 11:26:23 by numartin         ###   ########.fr       */
+/*   Updated: 2023/09/27 14:45:45 by numartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
-#include <string.h>
+#include <string>
 
 /**
  * Since we can't pass parameters when initializing an array of Zombies
