@@ -6,7 +6,7 @@
 /*   By: numartin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 16:20:22 by numartin          #+#    #+#             */
-/*   Updated: 2023/09/28 13:22:45 by numartin         ###   ########.fr       */
+/*   Updated: 2023/09/28 13:57:21 by numartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,5 @@ int main( int argc, char **argv ) {
 		return (2);
 	}
 
-	return ft_sed(src_file, dest_file, target, replaceable);;
+	return ft_sed(src_file, dest_file, target, replaceable);
 }
