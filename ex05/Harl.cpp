@@ -6,7 +6,7 @@
 /*   By: numartin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 14:06:00 by numartin          #+#    #+#             */
-/*   Updated: 2023/09/28 15:16:53 by numartin         ###   ########.fr       */
+/*   Updated: 2023/09/28 15:30:04 by numartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void Harl::error( void ) {
 void Harl::complain( std::string level ) {
     void    (Harl::*memberFuncs[])( void ) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 
-    for(int i=0; i< 4; i++) {
+    for(int i=0; i < 4; i++) {
         if (_complains[i] == level)
             (this->*memberFuncs[i])();
     }
