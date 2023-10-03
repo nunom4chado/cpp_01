@@ -6,7 +6,7 @@
 /*   By: numartin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 13:19:50 by numartin          #+#    #+#             */
-/*   Updated: 2023/09/28 13:22:17 by numartin         ###   ########.fr       */
+/*   Updated: 2023/10/03 11:11:10 by numartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,23 @@ int ft_sed(std::string src_file, std::string dest_file, std::string target, std:
 	}
 
 	std::string line;
-	// reading with getline to manually handle spaces
+	size_t	target_pos;
+
+	// reading with getline to keep spaces
 	while(getline(ifs, line)) {
-		for ( std::string::iterator it=line.begin(); it!=line.end(); ++it) {
-			if (strncmp(&*it, target.c_str(), target.length()) == 0) {
-				ofs << replaceable;
-				it += target.length() - 1;
-			} else
-				ofs << *it;
+		
+		// find every occurrence of the word and replace it 
+		while ((target_pos = line.find(target)) != std::string::npos && target != replaceable) {
+			line.erase(target_pos, target.length());
+			line.insert(target_pos, replaceable);
 		}
-		ofs << std::endl;
+
+		ofs << line;
+
+		// only add newline if the ifstream does not have eof
+		// otherwise an extra newline at the end of the file may be added
+		if (!ifs.eof())
+			 ofs << std::endl;
 	}
 
 	ifs.close();

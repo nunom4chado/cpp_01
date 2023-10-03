@@ -6,7 +6,7 @@
 /*   By: numartin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 16:20:22 by numartin          #+#    #+#             */
-/*   Updated: 2023/09/28 13:57:21 by numartin         ###   ########.fr       */
+/*   Updated: 2023/10/03 11:18:01 by numartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@
  * ./sed source
  * ./sed
  * ./sed source ola adeus more
+ * ./sed filenotfound ola adeus
+ * ./sed filewithoutpermissions ola adeus
  * 
  * * MUST WORK *
  * ./sed source ola adeus
@@ -31,10 +33,11 @@
  * ./sed source ola ""
  * ./sed source " " ""
  * ./sed source "  " ""
+ * ./sed source wordnotfound "NO"
  * 
  * * REPLACING NOTHING (s1) CANT GET STUCK IN INFINITE LOOP *
  * ./sed source "" ""
- * ./sed source "" " "
+ * ./sed source "" ola
  * 
 */
 
