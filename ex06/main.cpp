@@ -6,7 +6,7 @@
 /*   By: numartin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 13:58:13 by numartin          #+#    #+#             */
-/*   Updated: 2023/09/28 15:51:59 by numartin         ###   ########.fr       */
+/*   Updated: 2023/10/11 12:10:21 by numartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,18 +36,10 @@
 
 int main( int argc, char **argv ) {
 	Harl harl;
-	int minLevel = 0;
 
-	if (argc > 1) {
-		minLevel = harl.getIndex(argv[1]);
-		if (minLevel == -1) {
-			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
-			return 0;
-		}
-	}
-
-	harl.setMinLevel(minLevel);
-
+	if (argc > 1)
+		harl.setMinLevel(argv[1]);
+		
 	harl.complain("DEBUG");
 	harl.complain("INFO");
 	harl.complain("WARNING");

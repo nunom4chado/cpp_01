@@ -6,7 +6,7 @@
 /*   By: numartin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 14:06:00 by numartin          #+#    #+#             */
-/*   Updated: 2023/09/28 15:41:29 by numartin         ###   ########.fr       */
+/*   Updated: 2023/10/11 12:14:45 by numartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 std::string const Harl::_complains[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 
 
-Harl::Harl( void ): _minLevel(0) {
+Harl::Harl( void ): _minLevel(0), _printed(0) {
     // std::cout << "contructer called" << std::endl;
 }
 
@@ -52,15 +52,36 @@ void Harl::complain( std::string level ) {
     void    (Harl::*memberFuncs[])( void ) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 
     int index = this->getIndex(level);
-    if (index == -1)
+    
+    // Print message only once and mute all complains
+    if (this->_minLevel == -1) {
+        if (!this->_printed) {
+            std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+            this->_printed = 1;
+        }
         return;
+    }
         
     if (index >= this->_minLevel)
         (this->*memberFuncs[index])();
 }
 
-void Harl::setMinLevel( int i ) {
-    if (i < 0)
-        i = 0;
-    this->_minLevel = i;
+void Harl::setMinLevel( std::string level ) {
+
+    switch (getIndex(level)) {
+        case (0):
+            this->_minLevel = 0;
+            break;
+        case (1):
+            this->_minLevel = 1;
+            break;
+        case (2):
+            this->_minLevel = 2;
+            break;
+        case (3):
+            this->_minLevel = 3;
+            break;
+        default:
+            this->_minLevel = -1;
+    }
 }

@@ -6,7 +6,7 @@
 /*   By: numartin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 13:59:54 by numartin          #+#    #+#             */
-/*   Updated: 2023/09/28 15:32:01 by numartin         ###   ########.fr       */
+/*   Updated: 2023/10/11 12:09:32 by numartin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,12 @@ class Harl {
         ~Harl(void);
         void complain( std::string level );
         int getIndex( std::string level ) const;
-        void setMinLevel( int i);
+        void setMinLevel( std::string level);
 
     private:
         static std::string const _complains[4];
         int _minLevel;
+        int _printed;
         
         void debug( void );
         void info( void );
